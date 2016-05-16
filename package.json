@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-load": "^0.4.1",
     "pdfjs-dist": "^1.5.256"
   }
 }

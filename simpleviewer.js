@@ -15,6 +15,19 @@
 
 'use strict';
 
+console.log('PDFJS?', PDFJS);
+console.log('PDFJS.PDFViewer?', PDFJS.PDFViewer);
+console.log('PDFJS.getDocument?', PDFJS.getDocument);
+
+var parentViewer = document.createElement('div');
+parentViewer.setAttribute('id', 'viewerContainer');
+document.body.appendChild(parentViewer);
+
+var childViewer = document.createElement('div');
+childViewer.setAttribute('id', 'viewer');
+childViewer.setAttribute('class', 'pdfViewer');
+parentViewer.appendChild(childViewer);
+
 if (!PDFJS.PDFViewer || !PDFJS.getDocument) {
   alert('Please build the pdfjs-dist library using\n' +
         '  `gulp dist`');
@@ -35,6 +48,8 @@ var PAGE_TO_VIEW = 1;
 var SCALE = 1.0;
 
 var container = document.getElementById('viewerContainer');
+
+console.log('container', container);
 
 // (Optionally) enable hyperlinks within PDF files.
 var pdfLinkService = new PDFJS.PDFLinkService();
