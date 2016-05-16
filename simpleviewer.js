@@ -15,15 +15,12 @@
 
 'use strict';
 
-console.log('PDFJS?', PDFJS);
-console.log('PDFJS.PDFViewer?', PDFJS.PDFViewer);
-console.log('PDFJS.getDocument?', PDFJS.getDocument);
-
 var parentViewer = document.createElement('div');
 parentViewer.setAttribute('id', 'viewerContainer');
 document.body.appendChild(parentViewer);
 
 var childViewer = document.createElement('div');
+
 childViewer.setAttribute('id', 'viewer');
 childViewer.setAttribute('class', 'pdfViewer');
 parentViewer.appendChild(childViewer);
@@ -49,8 +46,6 @@ var SCALE = 1.0;
 
 var container = document.getElementById('viewerContainer');
 
-console.log('container', container);
-
 // (Optionally) enable hyperlinks within PDF files.
 var pdfLinkService = new PDFJS.PDFLinkService();
 
@@ -74,26 +69,6 @@ container.addEventListener('pagesinit', function () {
     pdfFindController.executeCommand('find', {query: SEARCH_FOR});
   }
 });
-
-// // Loading document.
-// PDFJS.getDocument(DEFAULT_URL).then(function (pdfDocument) {
-//   // Document loaded, retrieving the page.
-//   return pdfDocument.getPage(PAGE_TO_VIEW).then(function (pdfPage) {
-//     // Creating the page view with default parameters.
-//     var pdfPageView = new PDFJS.PDFPageView({
-//       container: container,
-//       id: PAGE_TO_VIEW,
-//       scale: SCALE,
-//       defaultViewport: pdfPage.getViewport(SCALE),
-//       // We can enable text/annotations layers, if needed
-//       textLayerFactory: new PDFJS.DefaultTextLayerFactory(),
-//       annotationLayerFactory: new PDFJS.DefaultAnnotationLayerFactory()
-//     });
-//     // Associates the actual page with the view, and drawing it
-//     pdfPageView.setPdfPage(pdfPage);
-//     return pdfPageView.draw();
-//   });
-// });
 
 // Loading document.
 PDFJS.getDocument(DEFAULT_URL).then(function (pdfDocument) {
