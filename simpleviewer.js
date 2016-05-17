@@ -15,10 +15,10 @@
 
 'use strict';
 
-function simpleViewer() {
+function simpleViewer(pdfpath) {
   testForPDFJS();
-  
-  var DEFAULT_URL;
+
+  var DEFAULT_URL = pdfpath;
 
   var parentViewer = document.createElement('div');
   parentViewer.setAttribute('id', 'viewerContainer');
@@ -38,15 +38,6 @@ function simpleViewer() {
   //
   // PDFJS.cMapUrl = '../../build/dist/cmaps/';
   // PDFJS.cMapPacked = true;
-
-  var myInterval = setInterval(function() {
-    console.log('simpleviewer.js', window.pdfpath);
-    if(window.pdfpath != undefined) {
-      DEFAULT_URL = window.pdfpath;
-      getDocument();
-      window.clearInterval(myInterval);
-    }
-  }, 100);
 
   // var DEFAULT_URL = './relativity.pdf';
   var SEARCH_FOR = ''; // try 'Mozilla';
@@ -89,6 +80,7 @@ function simpleViewer() {
       pdfLinkService.setDocument(pdfDocument, null);
     });
   }
+  getDocument();
 }
 
 function testForPDFJS() {
