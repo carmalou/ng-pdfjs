@@ -51,10 +51,28 @@ function simpleViewer(pdfpath) {
   // Loading document.
   function getDocument() {
     PDFJS.getDocument(DEFAULT_URL).then(function (pdfDocument) {
+      console.log('pdfViewer', pdfViewer);
       pdfViewer.setDocument(pdfDocument);
       pdfLinkService.setDocument(pdfDocument, null);
     });
   }
+
+function previousPage() {
+    if (PAGE_TO_VIEW <= 1) {
+      return;
+    }
+    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) - 1;
+    var pageNum = PAGE_TO_VIEW;
+  };
+
+function nextPage() {
+    if (PAGE_TO_VIEW >= pdfDocument.numPages) {
+      return;
+    }
+    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
+    var pageNum = PAGE_TO_VIEW;
+  };
+
   getDocument();
 }
 
