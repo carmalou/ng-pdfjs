@@ -51,7 +51,7 @@ function simpleViewer(pdfpath) {
   // Loading document.
   function getDocument() {
     PDFJS.getDocument(DEFAULT_URL).then(function (pdfDocument) {
-      console.log('pdfViewer', pdfViewer);
+      // console.log('pdfViewer', pdfViewer);
       pdfViewer.setDocument(pdfDocument);
       pdfLinkService.setDocument(pdfDocument, null);
     });
@@ -66,14 +66,20 @@ function previousPage() {
   };
 
 function nextPage() {
-    if (PAGE_TO_VIEW >= pdfDocument.numPages) {
+    if (PAGE_TO_VIEW >= pdfViewer.pdfDocument.numPages) {
       return;
     }
     PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
     var pageNum = PAGE_TO_VIEW;
   };
 
+  function searchText() {
+    console.log('search btn');
+  }
+
   getDocument();
+  console.log('pdfFindController', pdfFindController);
+  console.log('pdfViewer', pdfViewer);
 }
 
 function testForPDFJS() {
