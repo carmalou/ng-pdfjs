@@ -41,7 +41,7 @@ function simpleViewer(pdfpath) {
 
   container.addEventListener('pagesinit', function () {
     // We can use pdfViewer now, e.g. let's change default scale.
-    pdfViewer.currentScaleValue = 'page-width';
+    pdfViewer.currentScaleValue = SCALE;
 
     if (SEARCH_FOR) { // We can try search for things
       pdfFindController.executeCommand('find', {query: SEARCH_FOR});
