@@ -7,6 +7,7 @@ function simpleViewer(pdfpath) {
   var SEARCH_FOR = '';
   var PAGE_TO_VIEW = 1;
   var SCALE = 1.0;
+  var pdfDoc;
   var previousPageBtn = document.getElementById('previousPage');
   var nextPageBtn = document.getElementById('nextPage');
 
@@ -50,14 +51,45 @@ function simpleViewer(pdfpath) {
     }
   });
 
-  // Loading document.
+  // Loading document
   function getDocument() {
     PDFJS.getDocument(DEFAULT_URL).then(function (pdfDocument) {
       // console.log('pdfViewer', pdfViewer);
+      console.log('pdfDocument', pdfDocument);
+      var pdfDoc = pdfDocument.getPage;
+      console.log('pdfDoc', pdfDoc);
+      console.log('pdfDoc.getPage', pdfDoc.getPage);
       pdfViewer.setDocument(pdfDocument);
       pdfLinkService.setDocument(pdfDocument, null);
     });
   }
+
+  function previousPage () {
+    console.log('can you see me');
+      if (PAGE_TO_VIEW <= 1) {
+        console.log('if block');
+        return;
+      }
+      console.log('not if block');
+      PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) - 1;
+      var pageNum = PAGE_TO_VIEW;
+      pdfDoc.getPage(pageNum);
+    };
+
+  function nextPage () {
+    console.log('can you see me in nextPage');
+      if (PAGE_TO_VIEW >= pdfViewer.pdfDocument.numPages) {
+        console.log('if block');
+        return;
+      }
+      console.log('not if block');
+      PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
+      console.log('PAGE_TO_VIEW', PAGE_TO_VIEW);
+      var pageNum = PAGE_TO_VIEW;
+      console.log('pageNum', pageNum);
+      console.log(pdfDoc);
+      // pdfDoc.getPage(pageNum);
+    };
 
   function searchText() {
     console.log('search btn');
@@ -66,6 +98,9 @@ function simpleViewer(pdfpath) {
   getDocument();
   console.log('pdfFindController', pdfFindController);
   console.log('pdfViewer', pdfViewer);
+
+  previousPageBtn.addEventListener('click', previousPage, false);
+  nextPageBtn.addEventListener('click', nextPage, false);
 }
 
 function testForPDFJS() {

@@ -13,6 +13,11 @@
     <script type="text/javascript" src="node_modules/pdfjs-dist/web/pdf_viewer.js"></script>
   </head>
   <body>
+    <nav>
+      <button id="previousPage" ng-click="previousPage()">Previous</button>
+      <button id="nextPage" ng-click="nextPage()">Next</button>
+    </nav>
+
     <pdfjs pdfpath="relativity.pdf"></pdfjs>
   </body>
 </html>
