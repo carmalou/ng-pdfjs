@@ -57,21 +57,23 @@ function simpleViewer(pdfpath) {
     });
   }
 
-function previousPage() {
-    if (PAGE_TO_VIEW <= 1) {
-      return;
-    }
-    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) - 1;
-    var pageNum = PAGE_TO_VIEW;
-  };
-
-function nextPage() {
-    if (PAGE_TO_VIEW >= pdfViewer.pdfDocument.numPages) {
-      return;
-    }
-    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
-    var pageNum = PAGE_TO_VIEW;
-  };
+// function previousPage() {
+//   console.log('can you see me');
+//     if (PAGE_TO_VIEW <= 1) {
+//       return;
+//     }
+//     PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) - 1;
+//     var pageNum = PAGE_TO_VIEW;
+//   };
+//
+// function nextPage() {
+//   console.log('can you see me in nextPage');
+//     if (PAGE_TO_VIEW >= pdfViewer.pdfDocument.numPages) {
+//       return;
+//     }
+//     PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
+//     var pageNum = PAGE_TO_VIEW;
+//   };
 
   function searchText() {
     console.log('search btn');
