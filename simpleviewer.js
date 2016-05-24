@@ -59,24 +59,6 @@ function simpleViewer(pdfpath) {
     });
   }
 
-function previousPage() {
-  console.log('can you see me');
-    if (PAGE_TO_VIEW <= 1) {
-      return;
-    }
-    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) - 1;
-    var pageNum = PAGE_TO_VIEW;
-  };
-
-function nextPage() {
-  console.log('can you see me in nextPage');
-    if (PAGE_TO_VIEW >= pdfViewer.pdfDocument.numPages) {
-      return;
-    }
-    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
-    var pageNum = PAGE_TO_VIEW;
-  };
-
   function searchText() {
     console.log('search btn');
   }
@@ -84,9 +66,6 @@ function nextPage() {
   getDocument();
   console.log('pdfFindController', pdfFindController);
   console.log('pdfViewer', pdfViewer);
-
-  previousPageBtn.addEventListener('click', previousPage, false);
-  nextPageBtn.addEventListener('click', nextPage, false);
 }
 
 function testForPDFJS() {
