@@ -1,15 +1,24 @@
-<style>
-  body {
-    background-color: #808080;
-    margin: 0;
-    padding: 0;
-  }
-  #viewerContainer {
-    overflow: auto;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-</style>
+<div>
+  <style>
+    body {
+      background-color: #808080;
+      margin: 0;
+      padding: 0;
+    }
+    #viewerContainer {
+      overflow: auto;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 
-<link rel="stylesheet" href="node_modules/pdfjs-dist/web/pdf_viewer.css">
+  <link rel="stylesheet" href="node_modules/pdfjs-dist/web/pdf_viewer.css">
+
+  <div>
+    <nav>
+      <button id="previousPage" ng-click="previousPage()">Previous</button>
+      <button id="nextPage" ng-click="nextPage()">Next</button>
+    </nav>
+  </div>
+</div>
