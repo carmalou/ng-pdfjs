@@ -7,6 +7,8 @@ function simpleViewer(pdfpath) {
   var SEARCH_FOR = '';
   var PAGE_TO_VIEW = 1;
   var SCALE = 1.0;
+  var previousPageBtn = document.getElementById('previousPage');
+  var nextPageBtn = document.getElementById('nextPage');
 
   // generate elements for viewer
   var parentViewer = document.createElement('div');
@@ -57,23 +59,23 @@ function simpleViewer(pdfpath) {
     });
   }
 
-// function previousPage() {
-//   console.log('can you see me');
-//     if (PAGE_TO_VIEW <= 1) {
-//       return;
-//     }
-//     PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) - 1;
-//     var pageNum = PAGE_TO_VIEW;
-//   };
-//
-// function nextPage() {
-//   console.log('can you see me in nextPage');
-//     if (PAGE_TO_VIEW >= pdfViewer.pdfDocument.numPages) {
-//       return;
-//     }
-//     PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
-//     var pageNum = PAGE_TO_VIEW;
-//   };
+function previousPage() {
+  console.log('can you see me');
+    if (PAGE_TO_VIEW <= 1) {
+      return;
+    }
+    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) - 1;
+    var pageNum = PAGE_TO_VIEW;
+  };
+
+function nextPage() {
+  console.log('can you see me in nextPage');
+    if (PAGE_TO_VIEW >= pdfViewer.pdfDocument.numPages) {
+      return;
+    }
+    PAGE_TO_VIEW = parseInt(PAGE_TO_VIEW) + 1;
+    var pageNum = PAGE_TO_VIEW;
+  };
 
   function searchText() {
     console.log('search btn');
@@ -82,6 +84,9 @@ function simpleViewer(pdfpath) {
   getDocument();
   console.log('pdfFindController', pdfFindController);
   console.log('pdfViewer', pdfViewer);
+
+  previousPageBtn.addEventListener('click', previousPage, false);
+  nextPageBtn.addEventListener('click', nextPage, false);
 }
 
 function testForPDFJS() {
