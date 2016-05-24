@@ -56,7 +56,7 @@ function simpleViewer(pdfpath) {
     PDFJS.getDocument(DEFAULT_URL).then(function (pdfDocument) {
       // console.log('pdfViewer', pdfViewer);
       console.log('pdfDocument', pdfDocument);
-      var pdfDoc = pdfDocument.getPage;
+      pdfDoc = pdfDocument.getPage;
       console.log('pdfDoc', pdfDoc);
       console.log('pdfDoc.getPage', pdfDoc.getPage);
       pdfViewer.setDocument(pdfDocument);
